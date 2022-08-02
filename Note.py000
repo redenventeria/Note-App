@@ -1,0 +1,17 @@
+from tkinter import (
+    Button,
+    Frame
+)
+
+class Note(Button):
+
+    def __init__(self, root=None, note=None, name="Новая заметка"):
+
+        if note == None:
+            super().__init__(root, text=name)
+            self.text = ""
+        elif root == None:
+            super().__init__(note.master, text=note.cget("text") + " копия")
+            self.text = note.text
+        else:
+            print("Unreachable")
